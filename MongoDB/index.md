@@ -107,6 +107,7 @@ printjson(ResultMessage)
 - limit：返回的数量，后边跟数字，控制每次查询返回的结果数量。
 - skip:跳过多少个显示，和limit结合可以实现分页。
 - sort：排序方式，从小到大排序使用1，从大到小排序使用-1。
+
 ### 简单查找
 ``db.集合.find({查询})``
 ### 筛选字段
@@ -212,6 +213,7 @@ db.集合.find(
 
 ## 索引
 ### 建立索引
+其他参数参考文档
 ``db.集合.ensureIndex({key:1})``
 ### 查看现有索引
 ``db.集合.getIndexes()``
@@ -233,6 +235,69 @@ text关键词来代表全文索引
 如果关键词中文有空格需要使用
 ``db.集合.find({$text:{$search:"\"关键 词1\" 关键词2"}})``
 
+## 聚合管道（Aggregation Pipeline）
+使用聚合管道可以对集合中的文档进行变换和组合。表关联查询、数据的统计。
+| 管道操作符   | 描述                                                  |
+| :----------- | :---------------------------------------------------- |
+| ``$project`` | 增加、删除、重命名字段                                |
+| ``$match``   | 条件匹配。只满足条件的文档才能进入下一阶段            |
+| ``$limit``   | 限制结果的数量                                        |
+| ``$skip``    | 跳过文档的数量                                        |
+| ``$sort``    | 条件排序                                              |
+| ``$group``   | 条件组合结果  统计                                    |
+| ``$lookup``  | $lookup 操作符 用以引入其它集合的数据  （表关联查询） |
+例子：
+```
+// 将字段改为key1和key2两个，其他没有列出的都抛弃
+db.order.aggregate([
+    {
+        $project:{ key1:1, key2:1 }
+    }
+])
+// key2值大于等于90的筛选出啦
+db.order.aggregate([
+    {
+        $project:{ key1:1, key2:1 }
+    },
+    {
+        $match:{"key2":{$gte:90}}
+    }
+])
+// 统计每个订单的订单数量，按照订单号分组
+// $sum指定字段求和
+db.order_item.aggregate([
+    {
+        $group: {_id: "$order_id", total: {$sum: "$num"}}
+    }
+])
+// 排序
+db.order.aggregate([
+    {
+        $project:{ key1:1, key2:1 }
+    },
+    {
+        $match:{"key2":{$gte:90}}
+    },
+    {
+        $sort:{"all_price":-1}
+    }
+])
+// from 指定同一数据库中的集合以执行连接，要关联的集合（order_item）
+// localField 指定从文档（order）输入到$lookup关联的字段，如果输入文档不包含则当null处理
+// foreignField 指定from 集合（order_item）中需要关联的字段，如果集合中的文档不包含，则将值视为匹配目的
+// as 为输出文档的新增值命名，如果输入文档中已经存在指定的名称，则覆盖现有字段
+db.order.aggregate([
+    {
+      $lookup:
+        {
+          from: "order_item",
+          localField: "order_id",
+          foreignField: "order_id",
+          as: "items"
+        }
+   }
+])
+```
 ## 管理
 ### 内置角色
 - 数据库用户角色：read、readWrite；

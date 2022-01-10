@@ -280,13 +280,15 @@ db.createUser({
 ## 数据库备份恢复
 如果相关[工具](https://www.mongodb.com/try/download/database-tools)不存在需要去下载并复制到bin目录下
 ### 备份
-需要开启服务，打开命令提示符窗口，进入MongoDB安装目录的bin目录``mongodump -h dbhost -d dbname -u username -p pwd -o dbdirectory``
+需要开启服务，打开命令提示符窗口，进入MongoDB安装目录的bin目录
+``mongodump -h dbhost -d dbname -u username -p pwd -o dbdirectory``
 - -h：MongoDB 所在服务器地址，例如：127.0.0.1，当然也可以指定端口号：127.0.0.1:27017
 - -d：需要备份的数据库实例，例如：test
 - -o：备份的数据存放位置，例如：c:\data\dump，当然该目录需要提前建立，在备份完成后，系统自动在dump目录下建立一个test目录，这个目录里面存放该数据库实例的备份数据。
 
 ```
 mongodump --host 127.0.0.1 --port 27017  --out E:/beifen/
+
 ```
 ### 恢复
 ``mongorestore -h <hostname><:port> -d dbname -u username -p pwd <path>``

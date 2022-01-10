@@ -213,8 +213,12 @@ db.集合.find(
 
 ## 索引
 ### 建立索引
-其他参数参考文档
 ``db.集合.ensureIndex({key:1})``
+参数  
+- background（Boolean默认false）：建索引过程会阻塞其他数据库操作，可以指定以后台方式创建
+- unique（Boolean默认false）：建立的索引是否唯一
+- name（String）：索引名称，如果未指定通过连接索引的字段名称和排序生成一个索引名称
+- dropDups（Boolean默认false）：在建立唯一索引时是否删除重复记录
 ### 查看现有索引
 ``db.集合.getIndexes()``
 ### 复合索引

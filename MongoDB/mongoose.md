@@ -191,7 +191,8 @@ const UserSchema = new mongoose.Schema({
     }
 })
 ```
-## 聚合管道 用法一样
+## 聚合管道
+用法参考MongoDB
 
 ## Mongoose populate 关联查询
 ```
@@ -241,3 +242,12 @@ ArticleModel.find({}).populate('cid').populate('author_id').exec(function(err,do
     console.log(docs) 
 })
 ```
+
+## 索引
+用法参考MongoDB
+
+## explain
+explain 是非常有用的工具，会帮助你获得查询方面诸多有用的信息。只要对游标调用 该方法，就可以得到查询细节。explain 会返回一个文档，而不是游标本身。
+
+### explain executionStats 查询具体的执行 时间
+``db.tablename.find().explain( "executionStats" )``

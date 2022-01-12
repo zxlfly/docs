@@ -28,3 +28,5 @@ const makeScroll = async (
 }
 await makeScroll(scrollDom, 'scrollTop', 100)
 ```
+- 回调函数触发
+  - ``const selectValueCB = jest.fn()``

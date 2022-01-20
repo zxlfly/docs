@@ -691,7 +691,7 @@ await User.bulkCreate([
 // foo 和 bar 都不会是管理员.
 ```
 ### 排序和分组
-Sequelize 提供了 order and group 参数,来与 ORDER BY 和 GROUP BY 一起使用.
+Sequelize 提供了 ``order`` and ``group`` 参数,来与 ``ORDER BY`` 和 ``GROUP BY`` 一起使用.
 #### 排序
 order 参数采用一系列 项 来让 sequelize 方法对查询进行排序. 这些 项 本身是 [column, direction] 形式的数组. 该列将被正确转义,并且将在有效方向列表中进行验证(例如 ASC, DESC, NULLS FIRST 等).
 ```
@@ -764,6 +764,13 @@ Foo.findOne({
   ]
 });
 ```
+- 一个字符串 (它将被自动引用)
+- 一个数组, 其第一个元素将被引用,第二个将被逐字追加
+- 一个具有 raw 字段的对象:
+  - raw 内容将不加引用地逐字添加
+  - 其他所有内容都将被忽略,如果未设置 raw,查询将失败
+- 调用 Sequelize.fn (这将在 SQL 中生成一个函数调用,创建一个表示数据库函数的对象)
+- 调用 Sequelize.col (这将引用列名,创建一个代表数据库中的列的对象)
 #### 分组
 分组和排序的语法相同,只是分组不接受方向作为数组的最后一个参数(不存在 ASC, DESC, NULLS FIRST 等).  
 你还可以将字符串直接传递给 group,该字符串将直接(普通)包含在生成的 SQL 中. **请谨慎使用,请勿与用户生成的内容一起使用.**

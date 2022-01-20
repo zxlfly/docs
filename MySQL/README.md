@@ -193,7 +193,21 @@ ORDER BY field1 [ASC [DESC][默认 ASC]], [field2...] [ASC [DESC][默认 ASC]]
 等价于``select * from websites where country = 'USA' or country = '鸟国' or country = 'CN'``
 
 ## 别名
-``select tt.name '网站名字' from websites tt``
+```
+select bookname name from book;
+##这里是将name设置为bookname的别名；
+
+select 函数1 函数1别名,函数2 函数2别名 from b表名;
+select number num,price money from book;
+
+select 表达式 别名 from 表名;
+select name,price*12 totalprice from book;
+
+select 函数名 别名(英文名可以直接写) from 表名;
+select avg(price) avgmoney from book;
+select avg(price) as avgmoney from book;
+两者一样，可以省略 as
+```
 
 ## Group by 分组查询
 注意：分组时候的筛选用 having  
@@ -206,6 +220,12 @@ select avg(sal) aa from websites where sal is not null group by country having a
 把查询的结果当作一个表来使用
 
 ## 连接查询
+- ``INNER JOIN``（内连接,或等值连接）：获取两个表中字段匹配关系的记录。
+- ``LEFT JOIN``（左连接）：获取左表所有记录，即使右表没有对应匹配的记录。
+- ``RIGHT JOIN``（右连接）： 与 ``LEFT JOIN`` 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。
+- 内连接：join，inner join
+- 外连接：left join，left outer join，right join，right outer join，union
+- 交叉连接：cross join
 ```
 select name,count,date from websites w , access_log a ; --著名的笛卡尔积，没什么意义的
 select name,count,date from websites w , access_log a where w.id = a.site_id；-- 这是 1992
@@ -215,10 +235,4 @@ select name,count,date from websites w inner join access_log a on w.id = a.site_
 select name,count,date from websites w left outer join access_log a on w.id = a.site_id；--
 把没有访问的网站也显示出来
 -- 注意: inner 和 outer 是可以默认省略的
-```
-
-## Null 处理l 函数
-```
-select name,ifnull(count,0),ifnull(date,'') from websites w left outer join access_log a on
-w.id = a.site_id
 ```

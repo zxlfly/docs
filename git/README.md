@@ -116,6 +116,22 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
         - 会修改文件！！！
     - 后面会按顺序(最先的为最早的)自动进入需要编辑的提交信息框，编辑后:wq保存即可
   - ``git push --force``
+- 解决冲突``git rebase``之``abort``、``continue``、``skip``
+  - ``git pull --rebase``与远程代码同步，同步过程会检查冲突
+    - ``git pull --rebase``执行过程中会将本地当前分支里的每个提交(commit)取消掉，然后把将本地当前分支更新为最新的"origin"分支
+      - ``git pull``的默认行为是``git fetch`` + ``git merge``
+      - ``git pull --rebase``则是``git fetch + git rebase``
+    - 执行完``git pull --rebase``之后如果有合并冲突
+      - ``git rebase --abort``
+        - 会放弃合并，回到rebase操作之前的状态，之前的提交的不会丢弃。简单来说就是撤销``rebase``。
+      - ``git rebase --skip``
+        - 会将引起冲突的commits丢弃掉
+      - ``git rebase --continue``
+        - 合并冲突
+        - 结合"git add 文件"命令一起用与修复冲突，提示开发者，一步一步地有没有解决冲突。
+        - 修改后检查没问题，使用``rebase continue``来合并冲突。
+  - ``git fetch``从远程获取最新版本到本地，不会自动合并分支
+  - ``git rebase``重新定义分支的版本库状态
 
 ### 关于GitHub
 - Watch

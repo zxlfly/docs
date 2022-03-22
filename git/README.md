@@ -154,6 +154,11 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
   - ``npm config set registry https://registry.npmjs.org/``
   - ``yarn config set registry https://registry.yarnpkg.com``
 
+### pnpm
+将依赖包存放在统一的位置共享，节约磁盘空间优化安装速度。  
+- 安装``npm install -g pnpm``
+- 升级``pnpm add -g pnpm``
+
 ### nvm
 - https://github.com/coreybutler/nvm-windows/releases
 - nvm install <version>      安装制定版本的node 

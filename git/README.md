@@ -69,6 +69,7 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 - ``git checkout (branchname)``切换分支
 - ``git checkout -b (branchname)``创建切换分支
 - ``git branch -d (branchname)``删除分支
+- ``git push origin (branchName)``创建远程分支(本地分支push到远程)
 - ``git branch``列出分支``git branch -a``列出分支包括远程的分支
 - ``git merge ``分支合并
 

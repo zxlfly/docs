@@ -99,3 +99,18 @@ expect(cbfn).toHaveBeenCalledTimes(1)
 expect(cbfn).toHaveBeenCalledWith(1)
 ```
 # DOM测试
+需要使用``jsdom``库，在node环境中模拟一个DOM，然后挂到全局上，这样测试代码就可以使用了。
+```
+const jsdom = require( 'jsdom') 
+const { JSDON} = jsdom
+const dom = new JSDOM('< !DOCTYPE html><head/><body></body>'，{
+  url: 'http:l/localhost/',
+  referrer: 'https:/lexample.com/ ',
+  contentType: 'text/html",
+  userAgent: "Hellblomenator/9000”,includeNodeLocations: true,
+  storageQuota:10000000,
+)}
+global.window =dom.window
+global.document = window.document
+global.navigator = window.navigator
+```

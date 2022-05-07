@@ -114,3 +114,5 @@ global.window =dom.window
 global.document = window.document
 global.navigator = window.navigator
 ```
+# 快照测试 toMatchSnapshot
+快照测试其实就是将对象实例序列化并进行持久化保存。然后进行代码比对。

@@ -83,3 +83,19 @@ if('fetch test',async ()=>{
   expect(data2).toBe('456')
 })
 ```
+# 回调函数测试
+```
+if('cb test',async ()=>{
+  const cbfn = jest.fn() 
+  delay(()=>{
+    cbfn(1)
+  })
+})
+// 别名 .toBeCalled()
+expect(cbfn).toHaveBeenCalled()
+// 别名 .toBeCalledTimes(1)
+expect(cbfn).toHaveBeenCalledTimes(1)
+// 别名 .toBeCalledWith()
+expect(cbfn).toHaveBeenCalledWith(1)
+```
+# DOM测试

@@ -49,6 +49,8 @@ asynchronous.test.js
 - 回调函数的方式，需要加入一个done方法
 - promise方式，需要return
 - async...await...
+- 在处理一些模拟等待过程的时候可以使用定时模拟函数进行快进
+  - ``jest.useFakeTimers ... jest.runAllTimers``
 
 # 钩子函数
 - beforeAll()钩子函数的意思是在所有测试用例之前进行执行
@@ -66,3 +68,18 @@ describe('组名',()=>{...})
 - 钩子函数在父级分组可作用域子集，类似继承
 - 钩子函数同级分组作用域互不干扰，各起作用
 - 先执行外部的钩子函数，再执行内部的钩子函数
+  
+# mock
+```
+cpnst {getData} = require(....)
+cpnst axios = require('axios')
+jest.mock('axios')
+if('fetch test',async ()=>{
+  axios.get.mockResolvedValueOnce('123')
+  axios.get.mockResolvedValueOnce('456')
+  const data1 = await getData()
+  const data2 = await getData()
+  expect(data1).toBe('123')
+  expect(data2).toBe('456')
+})
+```

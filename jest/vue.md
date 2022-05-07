@@ -1,7 +1,7 @@
 # Vue Test Utils
 一般会结合这个一起使用
 
-## 参见操作
+## 常见操作
 - 触发input键盘事件
   - ``input.element.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))``
   - ``input.trigger('keydown', {code: Escape,})``

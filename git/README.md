@@ -160,7 +160,10 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 将依赖包存放在统一的位置共享，节约磁盘空间优化安装速度。  
 - 安装``npm install -g pnpm``
 - 升级``pnpm add -g pnpm``
-
+### webpack module federation
+[详见 article](https://github.com/zxlfly/webpack_share)
+### Yarn Workspaces
+[详见 article](https://github.com/zxlfly/article/blob/bca0d073295c142a00d19ca15a6c04e271b51ed2/00.%E9%9A%8F%E7%AC%94/1.yarn%20workspace.md)
 ### nvm
 - https://github.com/coreybutler/nvm-windows/releases
 - nvm install <version>      安装制定版本的node 

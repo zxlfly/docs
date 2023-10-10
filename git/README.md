@@ -55,8 +55,8 @@
 git reset 命令用于回退版本，可以指定退回某一次提交的版本。
 ``git reset [--soft | --mixed | --hard] [HEAD]``  
 --mixed 为默认  
-``git reset HEAD^``重置暂存区的文件与上一次的提交(commit)保持一致（撤销add）不更新工作区  
-``git reset --soft HEAD^``回退到指定的上一次版本库（回退commit）  
+``git reset HEAD^``重置暂存区的文件与上一次的提交(commit)保持一致（撤销commit和add操作，但是保留了修改的文件）不更新工作区  
+``git reset --soft HEAD^``回退到指定的上一次版本库（回退commit，会保留add操作）  
 ``git reset --hard HEAD^``不但版本回退，也会更新工作区的文件到上一次版本（工作区、暂存区、版本库都会改变）  
 ``HEAD^``也可以指定版本hash值，也可以使用多个``^``符号表示第前几个版本。也可以使用数字表示：``HEAD~1 ``  
 ``git reset --hard origin/master`` 将本地的状态回退到和远程的一样  

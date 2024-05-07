@@ -186,3 +186,7 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 node_mirror:https://npm.taobao.org/mirrors/node/
 npm_mirror:https://npm.taobao.org/mirrors/npm/
 ```
+```
+node_mirror: https://npmmirror.com/mirrors/node/
+npm_mirror: https://npmmirror.com/mirrors/npm/
+```

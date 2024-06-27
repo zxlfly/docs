@@ -106,7 +106,7 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 ``git config --global user.name "your_username"``
 ### 设置邮箱地址
 ``git config --global user.email "your_email@example.com"``
-### 确认设置
+### 查看设置
 ``git config --global --list``
 
 ## 常见问题

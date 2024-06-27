@@ -178,15 +178,14 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 [详见 article](https://github.com/zxlfly/article/blob/bca0d073295c142a00d19ca15a6c04e271b51ed2/00.%E9%9A%8F%E7%AC%94/1.yarn%20workspace.md)
 ### nvm
 - https://github.com/coreybutler/nvm-windows/releases
-- nvm install <version>      安装制定版本的node 
+- nvm install <version>      安装指定版本的node 
+- nvm uninstall <version>    卸载指定版本的node 
 - nvm list available 查看网络可以安装的版本
 
 **设置代理(nvm\settings.txt)**  
 ```
-node_mirror:https://npm.taobao.org/mirrors/node/
-npm_mirror:https://npm.taobao.org/mirrors/npm/
-```
-```
 node_mirror: https://npmmirror.com/mirrors/node/
 npm_mirror: https://npmmirror.com/mirrors/npm/
 ```
+### PowerShell 脚本执行策略限制
+永久解除限制：``Set-ExecutionPolicy RemoteSigned``

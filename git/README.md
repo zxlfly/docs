@@ -196,3 +196,45 @@ npm_mirror: https://npmmirror.com/mirrors/npm/
 ```
 ### PowerShell 脚本执行策略限制
 永久解除限制：``Set-ExecutionPolicy RemoteSigned``
+### mac 环境变量配置
+.bash_profile 和 .zshrc 是两种不同的 shell 配置文件，它们分别用于 Bash 和 Zsh 这两种不同的 Unix/Linux 命令行外壳程序。
+#### .bash_profile
+- 打开文件:
+  - 使用文本编辑器打开 .bash_profile 文件。例如，使用 vscode 编辑器：
+    ``code ~/.bash_profile`` 
+- 添加配置:
+  - 在文件中添加你需要的配置。例如，设置 PATH 变量：
+    ``export PATH=$PATH:/usr/local/bin ``
+- 保存并退出:
+  - 保存文件并退出编辑器。
+- 使配置生效:
+  - 运行以下命令使配置立即生效，无需重新登录：
+    ``source ~/.bash_profile``
+#### .zshrc
+- 打开文件:
+  - 使用文本编辑器打开 ~/.zshrc  文件。例如，使用 vscode 编辑器：
+    ``code ~/.zshrc `` 
+- 添加配置:
+  - 在文件中添加你需要的配置。例如，设置 PATH 变量：
+    ``export PATH=$PATH:/usr/local/bin ``
+- 保存并退出:
+  - 保存文件并退出编辑器。
+- 使配置生效:
+  - 运行以下命令使配置立即生效，无需重新登录：
+    ``source ~/.zshrc``
+#### 同步配置
+如果两者都用，且需要同步配置可以根据自己的实际使用情况同步配置，以.bash_profile 同步.zshrc配置为例
+- 复制配置:
+  - 将 .zshrc 文件中的内容复制到 .bash_profile 中。确保删除或注释掉那些只适用于 Zsh 的配置项。
+- 使用源文件（source）:
+  - 在 .bash_profile 中添加一行代码来源 .zshrc 文件：  
+    ``source ~/.zshrc``这样，每次启动 Bash 时，都会加载 .zshrc 中的配置。
+- 创建通用配置文件:
+  - 如果你有很多跨 shell 的通用配置，可以创建一个单独的配置文件（如 .commonrc），并在 .bash_profile 和 .zshrc 中都源这个文件。
+  - 你可以在 .bash_profile 中添加以下内容来同步这些配置：
+    ```
+    # Source .zshrc for common configurations
+    if [ -f ~/.zshrc ]; then 
+        source ~/.zshrc 
+    fi 
+    ```

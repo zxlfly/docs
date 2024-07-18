@@ -183,6 +183,13 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 [详见 webpack](https://github.com/zxlfly/webpack_share)
 ### Yarn Workspaces
 [详见 article](https://github.com/zxlfly/article/blob/bca0d073295c142a00d19ca15a6c04e271b51ed2/00.%E9%9A%8F%E7%AC%94/1.yarn%20workspace.md)
+### 源管理工具nrm
+手动的管理源比较麻烦，在某些镜像源到期时也能更方便的切换管理。  
+- 安装nrm：``npm install -g nrm ``
+- 查看可用源：``nrm ls``
+- 切换源：``nrm use 源``
+- 添加新的源：``nrm add 源``
+- 删除源：``nrm del 源``
 ### nvm
 - https://github.com/coreybutler/nvm-windows/releases
 - nvm install <version>      安装指定版本的node 

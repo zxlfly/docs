@@ -169,8 +169,8 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
   - ``npm get registry ``
   - ``yarn config get registry``
 - 设置为淘宝镜像
-  - ``npm config set registry http://registry.npm.taobao.org/``
-  - ``yarn config set registry http://registry.npm.taobao.org/``
+  - ``npm config set registry https://registry.npmmirror.com``
+  - ``yarn config set registry http://registry.npmmirror.com``
 - 设置回默认的官方镜像
   - ``npm config set registry https://registry.npmjs.org/``
   - ``yarn config set registry https://registry.yarnpkg.com``
@@ -201,6 +201,16 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 node_mirror: https://npmmirror.com/mirrors/node/
 npm_mirror: https://npmmirror.com/mirrors/npm/
 ```
+**mac电脑**
+打开配置文件
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node/
+export NVM_IOJS_ORG_MIRROR=https://npmmirror.com/mirrors/npm/
+```
+
 ### PowerShell 脚本执行策略限制
 永久解除限制：``Set-ExecutionPolicy RemoteSigned``
 ### mac 环境变量配置

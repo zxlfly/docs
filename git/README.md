@@ -60,6 +60,7 @@ git reset 命令用于回退版本，可以指定退回某一次提交的版本�
 ``git reset --hard HEAD^``不但版本回退，也会更新工作区的文件到上一次版本（工作区、暂存区、版本库都会改变）  
 ``HEAD^``也可以指定版本hash值，也可以使用多个``^``符号表示第前几个版本。也可以使用数字表示：``HEAD~1 ``  
 ``git reset --hard origin/master`` 将本地的状态回退到和远程的一样  
+  
 ``git checkout`` 命令通常用于切换分支或者恢复工作目录中的文件。当你使用 ``git checkout`` 回退到一个提交时，实际上是在创建一个新的暂存区，并且将工作目录设置为指定提交的状态。  
 ``git checkout -b <branch_name> <commit_id>``使用checkout命令创建一个新的分支并切换到指定版本  
 ``git checkout <commit_id>``使用checkout命令回退到指定版本

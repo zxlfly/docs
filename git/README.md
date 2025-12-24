@@ -258,3 +258,10 @@ export NVM_IOJS_ORG_MIRROR=https://npmmirror.com/mirrors/npm/
         source ~/.zshrc 
     fi 
     ```
+#### 手动安装
+可以手动的去node官网下载对应`node zip`文件，然后进入nvm的安装目录下,win下可以通过``nvm root``或者``where nvm``查看路径。  
+- 例如``nvm root``得到的路径为：``Current Root: C:\Users\Administrator\AppData\Roaming\nvm``  
+- 进入到``C:\Users\Administrator\AppData\Roaming\nvm``
+- 新建一个空的文件夹以v+node版本号命名，例如``v10.24.1``
+- 然后进入这个文件夹，将下载好的zip解压打这个目录下，注意不要出现嵌套，要将有exe的这一层级下所有的文件放大当前文件夹下
+- 然后就可以通过nvm ls查看新添加版本是否成功了
